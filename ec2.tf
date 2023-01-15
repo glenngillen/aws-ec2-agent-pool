@@ -79,7 +79,7 @@ setfacl -d -m g::rwX /home/tfc-agent
 setfacl -d -m o::rX /home/tfc-agent
 
 cd /home/tfc-agent
-curl -o tfc-agent.zip https://releases.hashicorp.com/tfc-agent/1.2.6/tfc-agent_1.2.6_linux_amd64.zip
+curl -o tfc-agent.zip https://releases.hashicorp.com/tfc-agent/1.6.0/tfc-agent_1.6.0_linux_amd64.zip
 cd bin
 unzip ../tfc-agent.zip
 
