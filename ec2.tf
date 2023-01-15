@@ -47,20 +47,20 @@ resource "aws_launch_template" "agent" {
   user_data = "${base64encode(<<EOF
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
-apt-get -y clean
-apt-get -y update
-apt-get -y dist-upgrade
-apt-get -y install ca-certificates
-apt-get -y install --no-install-recommends git mercurial ssh-client
-apt-get -y install --no-install-recommends curl wget jq unzip acl iputils-ping python3.10 python3-pip awscli
+apt-get -y -o DPkg::Lock::Timeout=300 clean
+apt-get -y -o DPkg::Lock::Timeout=300 update
+apt-get -y -o DPkg::Lock::Timeout=300 dist-upgrade
+apt-get -y -o DPkg::Lock::Timeout=300 install ca-certificates
+apt-get -y -o DPkg::Lock::Timeout=300 install --no-install-recommends git mercurial ssh-client
+apt-get -y -o DPkg::Lock::Timeout=300 install --no-install-recommends curl wget jq unzip acl iputils-ping python3.10 python3-pip awscli
 
-apt-get -y install --no-install-recommends gnupg lsb-release
+apt-get -y -o DPkg::Lock::Timeout=300 install --no-install-recommends gnupg lsb-release
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get -y update
-apt-get -y install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
-apt-get -y install --no-install-recommends ruby-full nodejs npm zip
+apt-get -y -o DPkg::Lock::Timeout=300 update
+apt-get -y -o DPkg::Lock::Timeout=300 install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
+apt-get -y -o DPkg::Lock::Timeout=300 install --no-install-recommends ruby-full nodejs npm zip
 
 
 
