@@ -25,7 +25,7 @@ Notes:
 ```hcl
 module "agents" {
   source            = "glenngillen/ec2-agent-pool/aws"
-  version           = "1.0.3"
+  version           = "1.0.4"
 
   org_name          = "acme-org"
   name              = "acme-agents"
