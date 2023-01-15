@@ -83,7 +83,7 @@ curl -o tfc-agent.zip https://releases.hashicorp.com/tfc-agent/1.2.6/tfc-agent_1
 cd bin
 unzip ../tfc-agent.zip
 
-echo "${local.script}}" > ./start.sh
+echo "${local.script}" > ./start.sh
 chmod +x ./start.sh
 echo "${local.systemd}" > /etc/systemd/system/tfc-agent.service
 systemctl start tfc-agent.service
