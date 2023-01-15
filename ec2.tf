@@ -52,7 +52,7 @@ apt-get -y update
 apt-get -y dist-upgrade
 apt-get -y install ca-certificates
 apt-get -y install --no-install-recommends git mercurial ssh-client
-apt-get -y install --no-install-recommends curl wget jq unzip iputils-ping python3.10 python3-pip awscli
+apt-get -y install --no-install-recommends curl wget jq unzip acl iputils-ping python3.10 python3-pip awscli
 
 apt-get -y install --no-install-recommends gnupg lsb-release
 mkdir -p /etc/apt/keyrings
