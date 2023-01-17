@@ -30,6 +30,7 @@ resource "aws_launch_template" "agent" {
   name_prefix   = "${var.name}-"
   image_id      = var.image_id
   instance_type = var.instance_type
+  update_default_version = true
 
   lifecycle {
     create_before_destroy = true
@@ -87,6 +88,8 @@ echo "${local.script}" > ./start.sh
 chmod +x ./start.sh
 echo "${local.systemd}" > /etc/systemd/system/tfc-agent.service
 systemctl start tfc-agent.service
+
+${var.user_data}
 EOF
   )}"  
 

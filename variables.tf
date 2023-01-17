@@ -33,3 +33,8 @@ variable "instance_type" {
   description = "Instance type to use."
   default = "t3.micro"
 }
+
+variable "user_data" {
+  description = "Custom user_data to insert as part of EC2 startup process"
+  default = ""
+}
